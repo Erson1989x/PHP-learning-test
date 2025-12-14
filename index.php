@@ -26,21 +26,46 @@
 
     <?php
     $books = [
-        "PHP and MySQL Web Development by Luke Welling and Laura Thomson",
-        "Learning PHP, MySQL & JavaScript by Robin Nixon",
-        "PHP Cookbook by David Sklar and Adam Trachtenberg",
-        "Modern PHP: New Features and Good Practices by Josh Lockhart",
-        "Head First PHP & MySQL by Lynn Beighley and Michael Morrison",
-        "PHP Objects, Patterns, and Practice by M. Y. Day",
-        "The Joy of PHP Programming by Alan Forbes"
+        [
+           "name" => "The Pragmatic Programmer by Andrew Hunt and David Thomas",
+           "author" => "Andrew Hunt and David Thomas",
+           "year" => 1999,
+           "purcheUrl" => "https://www.example.com/pragmatic-programmer"
+        ],
+        [
+            "name" => "Clean Code: A Handbook of Agile Software Craftsmanship by Robert C. Martin",
+            "author" => "Robert C. Martin",
+            "year" => 2008,
+            "purcheUrl" => "https://www.example.com/clean-code"
+        ],
+        [
+            "name" => "Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein",
+            "author" => "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein",
+            "year" => 2009,
+            "purcheUrl" => "https://www.example.com/introduction-to-algorithms"
+        ]
     ];
+
+    function filterByAuthor($books) {
+        $filtredBooks = [] ;
+
+        foreach ($books as $book) {
+            if($book['author'] === "Robert C. Martin") {
+                $filtredBooks[] = $book;
+            }
+        }
+        return $filtredBooks;
+    }
+    filterByAuthor($books);
     ?>
 
     <ul>
-        <?php foreach ($books as $book): ?>
-            <li><?= htmlspecialchars($book) ?></li>
+        <?php foreach (filterByAuthor($books) as $book): ?>
+            <li>
+                <strong><?= $book['name']; ?></strong> by <?= $book['author']; ?> (<?= $book['year']; ?>) - 
+                <a href="<?= $book['purcheUrl']; ?>">Purchase Here</a>
+            </li>
         <?php endforeach; ?>
     </ul>
-
 </body>
 </html>
