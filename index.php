@@ -46,21 +46,24 @@
         ]
     ];
 
-    function filterByAuthor($books) {
-        $filtredBooks = [] ;
+    function filterByAuthor($books, $author = null) {
+        // If no author provided, return all books
+        if ($author === null) {
+            return $books;
+        }
 
+        $filtredBooks = [] ;
         foreach ($books as $book) {
-            if($book['author'] === "Robert C. Martin") {
+            if ($book['author'] === $author) {
                 $filtredBooks[] = $book;
             }
         }
         return $filtredBooks;
     }
-    filterByAuthor($books);
     ?>
 
     <ul>
-        <?php foreach (filterByAuthor($books) as $book): ?>
+        <?php foreach (filterByAuthor($books, "Robert C. Martin") as $book): ?>
             <li>
                 <strong><?= $book['name']; ?></strong> by <?= $book['author']; ?> (<?= $book['year']; ?>) - 
                 <a href="<?= $book['purcheUrl']; ?>">Purchase Here</a>
