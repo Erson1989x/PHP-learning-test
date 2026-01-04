@@ -27,5 +27,21 @@ function routeTo($URL, $routes) {
     };
 }
 
-$URL = parse_url($_SERVER["REQUEST_URI"])["path"];
+$URL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) ?? "/";
+
+// If the app is hosted in a subfolder (e.g. http://localhost/PhP), strip that prefix.
+$basePath = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+$basePath = rtrim($basePath, '/');
+if ($basePath !== '' && $basePath !== '/' && str_starts_with($URL, $basePath)) {
+    $URL = substr($URL, strlen($basePath));
+    if ($URL === '') {
+        $URL = '/';
+    }
+}
+
+// Normalize trailing slash: /about/ -> /about
+if ($URL !== '/') {
+    $URL = rtrim($URL, '/');
+}
+
 routeTo($URL, $routes);
