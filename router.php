@@ -32,8 +32,10 @@ $URL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) ?? "/";
 // If the app is hosted in a subfolder (e.g. http://localhost/PhP), strip that prefix.
 $basePath = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
 $basePath = rtrim($basePath, '/');
-if ($basePath !== '' && $basePath !== '/' && str_starts_with($URL, $basePath)) {
-    $URL = substr($URL, strlen($basePath));
+if ($basePath !== '' && $basePath !== '/') {
+    if (strpos($URL, $basePath) === 0) {
+        $URL = substr($URL, strlen($basePath));
+    }
     if ($URL === '') {
         $URL = '/';
     }
