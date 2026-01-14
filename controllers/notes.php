@@ -6,7 +6,11 @@ $db = new Database($config['database']);
 
 $heading = "My Notes";
 
-$notes =  $db->query("SELECT * FROM notes where id = 1")->fetchAll();
+$currentUserId = 1; // Replace with the actual current user ID from your authentication system
+
+$notes =  $db->query("SELECT * FROM notes WHERE user_id = :user_id", [
+	'user_id' => $currentUserId
+])->fetchAll();
 
 
 
