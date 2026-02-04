@@ -4,7 +4,7 @@ $config = require "config.php";
 
 $db = new Database($config['database']);
 
-$heading = "My Note";
+$heading = "Note";
 $currentUserId = 1; // Replace with the actual current user ID from your authentication system
 
 
