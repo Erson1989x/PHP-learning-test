@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $error["body"] = "The body of the note cannot be empty.";
     }
     if( strlen($_POST["body"]) > 1000) {
-        $error["body"] = "The body of the note cannot exceed 1000 characters.";
+        $error["body"] = "The body of the note cannot exceed 1,000 characters.";
     }
     if (empty($error)) {
         $db->query("INSERT INTO notes (body, user_id) VALUES (:body, :user_id)", [
