@@ -15,7 +15,6 @@
                     </a>
                 </div>
             </div>
-
             <form method="POST" class="p-6">
                 <div class="mb-6">
                     <label for="body" class="block text-sm font-semibold text-gray-700 mb-2">Your Note</label>
@@ -29,7 +28,6 @@
                             <p class="text-red-500 text-sm mt-2"><?= $error['body']; ?></p>
                         <?php endif; ?>
                 </div>
-
                 <div class="flex items-center justify-end">
                     <button type="submit" class="inline-flex items-center px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 focus:ring-4 focus:ring-blue-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">

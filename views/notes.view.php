@@ -11,7 +11,7 @@
             </div>
         <?php endforeach; ?>
 
-        <button class="text-blue-500 underline mb-4 rounded-lg bg-blue-50 px-4 py-2"><a href="/note/create" class="text-blue-500 underline mb-4 rounded-lg bg-blue-50 px-4 py-2">New Note</a></button>
+        <button class="text-blue-500 underline mb-4 rounded-lg bg-blue-50 px-4 py-2 border border-blue-400 hover:bg-blue-100"><a href="/note/create" class="text-blue-500 underline mb-4 rounded-lg bg-blue-50 px-4 py-2">New Note</a></button>
     </div>
 </main>
 <?php require 'partials/footer.php'; ?>
