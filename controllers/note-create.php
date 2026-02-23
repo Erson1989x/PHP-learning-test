@@ -8,12 +8,16 @@ $db = new Database($config['database']);
 
 $heading = "Create a new note";
 
+// dd(validator::email('erson@example.com'));
+
+// if(! Validator::email('erson@example.com')) {
+//    dd("Not a valid email");
+//}
+
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $error = [];
 
-    $validator = new Validator();
-
-    if (!$validator->string($_POST["body"], 1, 1000)) {
+    if (!Validator::string($_POST["body"], 1, 1000)) {
         $error["body"] = "The body of no more than 1000 characters is required.";
     }
 
