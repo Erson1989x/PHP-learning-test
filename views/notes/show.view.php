@@ -1,6 +1,6 @@
-<?php require 'partials/head.php'; ?>
-<?php require 'partials/nav.php'; ?>
-<?php require 'partials/banner.php'; ?>
+<?php require 'views/partials/head.php'; ?>
+<?php require 'views/partials/nav.php'; ?>
+<?php require 'views/partials/banner.php'; ?>
 <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <?php foreach ($notes as $note) : ?>
@@ -14,4 +14,4 @@
         <button class="text-blue-500 underline mb-4 rounded-lg bg-blue-50 px-4 py-2 border border-blue-400 hover:bg-blue-100"><a href="/note/create" class="text-blue-500 underline mb-4 rounded-lg bg-blue-50 px-4 py-2">New Note</a></button>
     </div>
 </main>
-<?php require 'partials/footer.php'; ?>
+<?php require 'views/partials/footer.php'; ?>

@@ -4,9 +4,8 @@ return [
     "/" => "controllers/index.php",
     "/about" => "controllers/about.php",
     "/contact"=> "controllers/contact.php",
-    "/notes" => "controllers/notes.php",
-    "/note/create" => "controllers/note-create.php",
-    "/notes/create" => "controllers/note-create.php",
-    "/note" => "controllers/note.php",
-    "/note/edit" => "controllers/note-edit.php",
+    "/notes" => "controllers/notes/index.php",
+    "/notes/create" => "controllers/notes/create.php",
+    "/note" => "controllers/notes/show.php",
+    "/note/edit" => "controllers/notes/edit.php",
 ];
