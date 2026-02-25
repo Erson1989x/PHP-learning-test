@@ -1,10 +1,9 @@
 <?php
 
-$config = require "config.php";
+$config = require base_path("config.php");
 
 $db = new Database($config['database']);
 
-$heading = "Note";
 $currentUserId = 1; // Replace with the actual current user ID from your authentication system
 
 
@@ -17,4 +16,7 @@ authorize($note['user_id'] === $currentUserId);
 
 
 
-require "views/notes/show.view.php";
+view("notes/show.view.php", [
+    "heading" => "Note",
+    "note" => $note
+]);
