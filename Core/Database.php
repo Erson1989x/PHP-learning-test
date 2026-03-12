@@ -1,5 +1,9 @@
 <?php 
 
+namespace Core;
+
+use PDO;
+
 // Connect to MySQL database and execute a query
 /*
 class Person {
