@@ -7,17 +7,16 @@ $config = require base_path("config.php");
 $db = new Database($config['database']);
 
 $currentUserId = 1; // Replace with the actual current user ID from your authentication system
-
 $note =  $db->query("SELECT * FROM notes where id = :id", [
-    'id' => $_GET['id']
-    ])->findOrFail();
+    'id' => $_POST['id']
+])->findOrFail();
 
 authorize($note['user_id'] === $currentUserId);
 
 
-
-
-view("notes/show.view.php", [
-    "heading" => "Note",
-    "note" => $note
+$db->query("DELETE FROM notes where id = :id", [
+    'id' => $_POST['id']
 ]);
+
+header("Location: /notes");
+exit();

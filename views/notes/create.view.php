@@ -15,7 +15,7 @@
                     </a>
                 </div>
             </div>
-            <form method="POST" class="p-6">
+            <form method="POST" action="/notes" class="p-6">
                 <div class="mb-6">
                     <label for="body" class="block text-sm font-semibold text-gray-700 mb-2">Your Note</label>
                     <textarea
