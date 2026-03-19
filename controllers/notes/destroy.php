@@ -1,10 +1,10 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$config = require base_path("config.php");
-
-$db = new Database($config['database']);
+//$db = App::container()->resolve('Core\Database');// $db = App::container()->resolve( \Core\Database::class);
+$db = App::resolve('Core\Database');
 
 $currentUserId = 1; // Replace with the actual current user ID from your authentication system
 $note =  $db->query("SELECT * FROM notes where id = :id", [
