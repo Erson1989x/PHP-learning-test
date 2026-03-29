@@ -1,6 +1,11 @@
 <?php
 
 namespace Core;
+
+use Core\Middleware\Guest;
+use Core\Middleware\Auth;
+use Core\Middleware\Middleware;
+
 class Router {
     protected $routes = [];
 
@@ -9,39 +14,56 @@ class Router {
         $this->routes[] = [
             'url' => $url,
             'controller' => $controller,
-            'method' => $method
+            'method' => $method,
+            'middleware' => null
         ];
+
+        return $this;
     }
     public function get($url, $controller)
     {
-        $this->add($url, $controller, "GET");
+        return $this->add($url, $controller, "GET");
     }
 
     public function post($url, $controller)
     {
-        $this->add($url, $controller, "POST");
+        return $this->add($url, $controller, "POST");
     }
 
     public function delete($url, $controller)
     {
-        $this->add($url, $controller, "DELETE");
+        return $this->add($url, $controller, "DELETE");
     }
 
     public function put($url, $controller)
     {
-        $this->add($url, $controller, "PUT");
+        return $this->add($url, $controller, "PUT");
+    }
+
+    public function only ($middleware)
+    {
+        $route = array_pop($this->routes);
+        $route['middleware'] = $middleware;
+        $this->routes[] = $route;
+
+        return $this;
     }
 
     public function patch($url, $controller)
     {
-        $this->add($url, $controller, "PATCH");
+        return $this->add($url, $controller, "PATCH");
     }
 
     public function route($url, $method)
     {
      foreach($this->routes as $route) {
-         if($route['url'] === $url && $route['method'] === strtoupper($method)) {
-             return require base_path($route['controller']);
+            if ($route['url'] === $url && $route['method'] === strtoupper($method)) {
+                if ($route['middleware']) {
+                    $middleware = Middleware::MAP[$route['middleware']];
+
+                    (new $middleware())->handle();
+                }
+                return require base_path($route['controller']);
          }
      }
 
