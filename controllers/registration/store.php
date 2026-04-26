@@ -51,11 +51,14 @@ if ($user) {
     $db->query("insert into users (name, email, password) values (:name, :email, :password)", [
         'name' => $name,
         'email' => $email,
-        'password' => password_hash($password, PASSWORD_DEFAULT)
+        'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
-    // Log the user in (you can implement your own login logic here)
-    $_SESSION['user'] = $db->lastInsertId();
+    login([
+        'id' => $db->lastInsertId(),
+        'name' => $name,
+        'email' => $email,
+    ]);
 
     header("Location: /");
     die();
