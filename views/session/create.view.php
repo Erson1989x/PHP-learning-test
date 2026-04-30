@@ -14,8 +14,8 @@
                         <input type="email" name="email" id="email" 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             required>
-                            <?php if (isset($error['email'])): ?>
-                            <p class="text-red-500 text-sm mt-2"><?= $error['email']; ?></p>
+                            <?php if (isset($errors['email'])): ?>
+                            <p class="text-red-500 text-sm mt-2"><?= $errors['email']; ?></p>
                         <?php endif; ?>
                     </div>
                     
@@ -25,8 +25,8 @@
                         <input type="password" name="password" id="password" 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             required>
-                            <?php if (isset($error['password'])): ?>
-                            <p class="text-red-500 text-sm mt-2"><?= $error['password']; ?></p>
+                            <?php if (isset($errors['password'])): ?>
+                            <p class="text-red-500 text-sm mt-2"><?= $errors['password']; ?></p>
                         <?php endif; ?>
                     </div>
                 
