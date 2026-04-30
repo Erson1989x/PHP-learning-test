@@ -43,21 +43,7 @@ function view($path, $atributes = []) {
     require base_path("views/" . $path); // views/notes/create.view.php
 }
 
-function login ($user) {
-    session_regenerate_id(true);
-
-    $_SESSION['user'] = [
-        'id' => $user['id'],
-        'name' => $user['name'],
-        'email' => $user['email'],
-    ];
-}
-
-function logout()
-{
-    $_SESSION = [];
-    session_destroy();
-
-    $params = session_get_cookie_params();
-    setcookie("PHPSESSID", "", time() - 3600, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+function redirect($path) {
+    header("location: {$path}");
+    exit();
 }
