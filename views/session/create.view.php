@@ -11,7 +11,7 @@
                     <!-- Email Field -->
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <input type="email" name="email" id="email" 
+                        <input type="email" name="email" id="email" autoComplete="email" placeholder="Gx9X5@example.com" value="<?= old('email'); ?>"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             required>
                             <?php if (isset($errors['email'])): ?>
@@ -22,7 +22,7 @@
                     <!-- Password Field -->
                     <div>
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input type="password" name="password" id="password" 
+                        <input type="password" name="password" id="password" autoComplete="current-password" placeholder="********"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             required>
                             <?php if (isset($errors['password'])): ?>
