@@ -52,7 +52,7 @@ try {
     Session::flash('errors', $e->errors());
     Session::flash('old', $e->old);
 
-    return redirect('/login');
+    return redirect($router->previousUrl());
 }
 
 Session::unfash( "errors" );
