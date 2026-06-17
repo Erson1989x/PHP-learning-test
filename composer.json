@@ -6,11 +6,21 @@
             "email": "Erson1989x@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/collections": "^13.16"
+    },
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
             "Http\\": "Http/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.7"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
