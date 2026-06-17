@@ -1,0 +1,16 @@
+{
+    "name": "erson/ph-p",
+    "authors": [
+        {
+            "name": "Erson1989x",
+            "email": "Erson1989x@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
